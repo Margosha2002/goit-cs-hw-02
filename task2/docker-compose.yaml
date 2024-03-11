@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  main:
+    container_name: main
+    build:
+      context: .
+    ports:
+      - 8000:8000
+  postgres:
+    image: postgres:13.3
+    environment:
+      POSTGRES_DB: "hw02"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "567234"
+    ports:
+      - 5432:5432
+      
+networks:
+  main-network:
+    driver: bridge
