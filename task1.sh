@@ -13,7 +13,7 @@ log_file="website_status.log"
 # Перевірка доступності кожного сайту та запис результатів у файл
 for website in "${websites[@]}"; do
     # Виконання запиту з використанням curl та отримання статусного коду
-    status_code=$(curl -Is -o /dev/null -w "%{http_code}" "$website")
+    status_code=$(curl -s -o /dev/null -L -w "%{http_code}" "$website")
 
     echo $status_code
     
